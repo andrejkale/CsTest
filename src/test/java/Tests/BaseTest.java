@@ -1,6 +1,7 @@
 package Tests;
 import Helpers.App;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 
 import java.io.File;
@@ -25,6 +26,7 @@ public abstract class BaseTest {
     }
     @After
     public void tearDown() {
-        app.common.appOut();
+       app.common.appOut();
+
     }
 }

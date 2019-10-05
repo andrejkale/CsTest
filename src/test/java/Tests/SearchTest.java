@@ -21,4 +21,10 @@ public class SearchTest extends BaseTest {
         FileAssert.assertBinaryEquals("The files are differ!", expected, actual);
 
     }
+    @Test
+    public void printSearchResult(){
+        app.homePage.clickSearchButton();
+        app.homePage.executeSearch("DEVELOPER");
+        app.searchResultPage.getAllSearchResult();
+    }
 }

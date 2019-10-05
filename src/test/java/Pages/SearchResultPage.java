@@ -13,11 +13,16 @@ public class SearchResultPage extends BasePage {
 	@FindBy(xpath="//body[1]/section[2]/div[1]/div[2]/div[2]/ul[1]/li[position() < 9]/a[1]")
 	private List<WebElement> searchResultJobs;
 
+	@FindBy(xpath=" //section[@id='section-search']//div[@class='container']//div[1]//ul[1]//li[position() < 4]//a[1] | //body[1]/section[2]/div[1]/div[2]/div[2]/ul[1]/li[position() < 9]/a[1] | //h2[contains(text(),' ')] ")
+	private List <WebElement> allSearchResult;
+
+
 
 	public void getProductsFromSearch() throws IOException { // get a list of products and save it in file.txt
 	    for(int i = 0; i < searchResultProducts.size(); i++){
-			System.out.println(searchResultProducts.get(i).getText());
+			System.out.println(searchResultProducts.get(i).getText() + " " + i);
 		}
+
 
 		File actualResProd = new File("actualProducts.txt");
 		Writer csvWriter = new BufferedWriter(new OutputStreamWriter(
@@ -33,7 +38,7 @@ public class SearchResultPage extends BasePage {
 
     public void getJobsFromSearch() throws IOException{ //get a list of jobs and save it in file.txt
 		for(int i =0; i < searchResultJobs.size(); i++){
-			System.out.println(searchResultJobs.get(i).getText());
+			System.out.println(searchResultJobs.get(i).getText() + " " + i);
 		}
 
 		File actualResJob = new File("actualJobs.txt");
@@ -46,6 +51,12 @@ public class SearchResultPage extends BasePage {
 
 		csvWriter.flush();
 		csvWriter.close();
+	}
+
+	public void getAllSearchResult(){
+		for(int i =0; i < allSearchResult.size(); i++){
+			System.out.println(allSearchResult.get(i).getText() + " " + i);
+		}
 	}
 
 	public void mergeSearchResult() throws IOException{ //merge two files.txt to file.csv

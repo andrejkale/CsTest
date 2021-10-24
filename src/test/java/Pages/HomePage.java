@@ -7,7 +7,7 @@ public class HomePage  extends BasePage{
 	@FindBy(xpath="//a[@class='pure-menu-link squared scope']//span[@class='icon']")
 	private WebElement searchButton;
 
-	@FindBy(xpath="//div[@class='search-form-container']//input[@id='search_form_type_term']")
+	@FindBy(xpath="//*[@id='search_term']")
 	private WebElement searchField;
 
     public void clickSearchButton(){
